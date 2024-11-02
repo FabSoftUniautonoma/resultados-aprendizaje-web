@@ -221,7 +221,7 @@
                                         </a>
                                     </li>
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{ route('registrarAministrativos.create') }} ">
+                                        <a href="{{ route('registrarAdministrativos.create') }} ">
                                             <span class="sub-item">Registrar personal</span>
                                         </a>
                                     </li>
