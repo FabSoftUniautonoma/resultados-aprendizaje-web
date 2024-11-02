@@ -187,12 +187,12 @@
                             <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="programas_academicos">
                                 <ul class="nav nav-collapse">
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href=" {{ route('gestionarProgramas.index') }}">
                                             <span class="sub-item">Gestionar programas</span>
                                         </a>
                                     </li>
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href="{{ route('registrarProgramas.create') }}">
                                             <span class="sub-item">Registrar programas</span>
                                         </a>
                                     </li>
@@ -216,12 +216,12 @@
                             <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="personal_administrativo">
                                 <ul class="nav nav-collapse">
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href=" {{ route('gestionarAdministrativos.index') }}">
                                             <span class="sub-item">Gestionar personal</span>
                                         </a>
                                     </li>
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href="{{ route('registrarAministrativos.create') }} ">
                                             <span class="sub-item">Registrar personal</span>
                                         </a>
                                     </li>
@@ -245,12 +245,12 @@
                             <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="estudiantes">
                                 <ul class="nav nav-collapse">
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href="{{ route('gestionarEstudiantes.index') }}">
                                             <span class="sub-item">Gestionar estudiantes</span>
                                         </a>
                                     </li>
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href="{{ route('registrarEstudiantes.create') }}">
                                             <span class="sub-item">Registrar estudiantes</span>
                                         </a>
                                     </li>
@@ -274,12 +274,12 @@
                             <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="resultados_de_aprendizaje">
                                 <ul class="nav nav-collapse">
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href="{{ route('gestionarAprendizaje.index') }}">
                                             <span class="sub-item">Gestionar resultados</span>
                                         </a>
                                     </li>
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href="{{ route('registrarAprendizaje.create') }}">
                                             <span class="sub-item">Registrar resultados</span>
                                         </a>
                                     </li>
@@ -303,7 +303,7 @@
                             <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="roles">
                                 <ul class="nav nav-collapse">
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                        <a href="{{ route('gestionarRoles.index') }} ">
                                             <span class="sub-item">Gestionar roles</span>
                                         </a>
                                     </li>

@@ -1,7 +1,12 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProgramasController;
 use App\Http\Controllers\FacultadController;
+use App\Http\Controllers\AdministrativoController;
+use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\AprendizajeController;
+use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +26,39 @@ Route::get('/', function () {
 
 Route::get('dashboard-uno', [HomeController::class, 'index'])->name('dashboard');
 
+
+/*
+Rutas Facultad
+*/
 Route::get('/gestionar-facultades', [FacultadController::class, 'index'])->name('gestionarfacultad.index');
 Route::get('/registrar-facultades', [FacultadController::class, 'create'])->name('registrarfacultad.create');
+/*
+Rutas Programas Academicos
+*/
+Route::get('/gestionar-programas', [ProgramasController::class, 'index'])->name('gestionarProgramas.index');
+Route::get('/registrar-programas', [ProgramasController::class, 'create'])->name('registrarProgramas.create');
+
+/*
+Rutas Personal Administrativo
+*/
+Route::get('/gestinar-adiministartivo', [AdministrativoController::class, 'index'])->name('gestionarAdministrativos.index');
+Route::get('/registrar-adiministartivo', [AdministrativoController::class, 'create'])->name('registrarAdministrativos.create');
+
+/*
+Rutas Estudiantes
+*/
+Route::get('/gestionar-estudiante', [EstudianteController::class, 'index'])->name('gestionarEstudiantes.index');
+Route::get('/registrar-estudiante', [EstudianteController::class, 'create'])->name('registrarEstudiantes.create');
+
+/*
+Rutas Resultados de Aprendizaje
+*/
+Route::get('/gestionar-resultado', [AprendizajeController::class, 'index'])->name('gestionarAprendizaje.index');
+Route::get('/registrar-resultado', [AprendizajeController::class, 'create'])->name('registrarAprendizaje.create');
+
+/*
+Rutas Roles
+*/
+Route::get('/gestionar-rol', [RolesController::class, 'index'])->name('gestionarRoles.index');
+
 
