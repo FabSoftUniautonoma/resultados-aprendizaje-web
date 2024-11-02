@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{ env('APP_NAME') }}</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="shortcut icon" href="{{ asset('img/icon.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('img/mascota_icono.png') }}" />
 
     <!-- Core JS Files -->
     <script src="{{ asset('atlantis/assets/js/core/jquery.3.2.1.min.js') }}"></script>
@@ -67,11 +67,11 @@
     <div class="wrapper">
         <div class="main-header">
             <!-- Logo Header -->
-            <div class="logo-header" data-background-color="dark2">
+            <div class="logo-header" data-background-color="blue">
 
                 <a href="" class="logo">
                     <div class="avatar-sm mr-4 ">
-                        <img src="{{ asset('img/banner.svg') }}" class="navbar-brand" height="40">
+                        <img src="{{ asset('img/autonoma_icono.png') }}" class="navbar-brand" height="40">
                     </div>
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -90,7 +90,7 @@
             <!-- End Logo Header -->
 
             <!-- Navbar Header -->
-            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark2">
+            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue">
                 <div class="container-fluid">
 
                     <div class="collapse" id="search-nav">
@@ -125,55 +125,193 @@
             <!-- End Navbar -->
         </div>
         <!-- Sidebar -->
-        <div class="sidebar sidebar-style-2" data-background-color="dark2">
+        <div class="sidebar sidebar-style-2" data-background-color="bg2">
             <div class="sidebar-wrapper scrollbar scrollbar-inner">
                 <div class="sidebar-content">
                     <ul class="nav nav-primary">
+                        <!-- Inicio -->
                         <li class="nav-section">
                             <span class="sidebar-mini-icon">
                                 <i class="fa fa-ellipsis-h"></i>
                             </span>
-                            <h4 class="text-section">Estadísticas</h4>
+                            <h4 class="text-section">Inicio</h4>
                         </li>
                         <li class="nav-item {{ request()->is(['dashboard', '/']) ? 'active' : '' }}">
                             <a href="{{ route('dashboard') }}">
                                 <i class="fas fa-home"></i>
-                                <p>Tablero</p>
+                                <p>Historial</p>
                             </a>
                         </li>
+                        <!-- Facultades -->
                         <li class="nav-section">
                             <span class="sidebar-mini-icon">
                                 <i class="fa fa-ellipsis-h"></i>
                             </span>
                             <h4 class="text-section">Facultades</h4>
                         </li>
-                        <li
-                            class="nav-item {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'active' : '' }} --}}">
+                        <li class="nav-item {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'active' : '' }} --}}">
                             <a data-toggle="collapse" href="#facultades">
-                                <i class="fas fa-cogs"></i>
+                                <i class="fas fa-university"></i>
                                 <p>Facultades</p>
                                 <span class="caret"></span>
                             </a>
-                            <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}"
-                                id="facultades">
+                            <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="facultades">
                                 <ul class="nav nav-collapse">
-                                    <li
-                                        class="{{-- {{ request()->routeIs([
-                                            'equipos.index',
-                                            'equipos.show',
-                                            'equipos.edit',
-                                            'equipos.update',
-                                            'equipos.destroy',
-                                        ])
-                                            ? 'active'
-                                            : '' }} --}}">
-                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href=" {{ route('gestionarfacultad.index') }}">
                                             <span class="sub-item">Gestionar facultades</span>
                                         </a>
                                     </li>
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href=" {{ route('registrarfacultad.create') }}">
+                                            <span class="sub-item">Registrar facultades</span>
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </div>
                         </li>
+                        <!-- Programas académicos -->
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Programas académicos</h4>
+                        </li>
+                        <li class="nav-item {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'active' : '' }} --}}">
+                            <a data-toggle="collapse" href="#programas_academicos">
+                                <i class="fas fa-atlas"></i>
+                                <p>Programas académicos</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="programas_academicos">
+                                <ul class="nav nav-collapse">
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Gestionar programas</span>
+                                        </a>
+                                    </li>
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Registrar programas</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Personal Administrativo -->
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Personal administrativo</h4>
+                        </li>
+                        <li class="nav-item {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'active' : '' }} --}}">
+                            <a data-toggle="collapse" href="#personal_administrativo">
+                                <i class="fas fa-id-card"></i>
+                                <p>Personal administrativo</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="personal_administrativo">
+                                <ul class="nav nav-collapse">
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Gestionar personal</span>
+                                        </a>
+                                    </li>
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Registrar personal</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Estudiantes -->
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Estudiantes</h4>
+                        </li>
+                        <li class="nav-item {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'active' : '' }} --}}">
+                            <a data-toggle="collapse" href="#estudiantes">
+                                <i class="fas fa-user-graduate"></i>
+                                <p>Estudiantes</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="estudiantes">
+                                <ul class="nav nav-collapse">
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Gestionar estudiantes</span>
+                                        </a>
+                                    </li>
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Registrar estudiantes</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Resultados de aprendizaje -->
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Resultados de aprendizaje</h4>
+                        </li>
+                        <li class="nav-item {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'active' : '' }} --}}">
+                            <a data-toggle="collapse" href="#resultados_de_aprendizaje">
+                                <i class="fas fa-list-ol"></i>
+                                <p>Resultados de aprendizaje</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="resultados_de_aprendizaje">
+                                <ul class="nav nav-collapse">
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Gestionar resultados</span>
+                                        </a>
+                                    </li>
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Registrar resultados</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Roles -->
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Roles</h4>
+                        </li>
+                        <li class="nav-item {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'active' : '' }} --}}">
+                            <a data-toggle="collapse" href="#roles">
+                                <i class="fas fa-users-cog"></i>
+                                <p>Roles</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse {{-- {{ request()->routeIs(['mantenimientos.create', 'mantenimientos.store']) ? 'show' : '' }} --}}" id="roles">
+                                <ul class="nav nav-collapse">
+                                    <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
+                                        <a href="{{-- {{ route('equipos.index') }} --}}">
+                                            <span class="sub-item">Gestionar roles</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
             </div>

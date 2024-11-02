@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-inner">
     <div class="page-header">
-        <h4 class="page-title">Registrar recurso</h4>
+        <h4 class="page-title">Gestionar facultades</h4>
         <ul class="breadcrumbs">
             <li class="nav-home">
                 <a href="#">
@@ -14,13 +14,13 @@
                 <i class="flaticon-right-arrow"></i>
             </li>
             <li class="nav-item">
-                <a href="#">recursos</a>
+                <a href="#">facultades</a>
             </li>
             <li class="separator">
                 <i class="flaticon-right-arrow"></i>
             </li>
             <li class="nav-item">
-                <a href="#">Registrar recurso</a>
+                <a href="#">Gestionar facultades</a>
             </li>
         </ul>
     </div>
