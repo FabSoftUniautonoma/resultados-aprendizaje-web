@@ -8,12 +8,12 @@ class FacultadController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard.gestionar_facultades'); 
+        return view('admin.dashboard.facultades.gestionar_facultades');
     }
-    
+
     public function create()
     {
-        return view('admin.dashboard.registrar_facultades'); 
+        return view('admin.dashboard.facultades.registrar_facultades');
     }
-    
+
 }
