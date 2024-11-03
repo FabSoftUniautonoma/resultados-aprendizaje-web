@@ -31,24 +31,7 @@
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <label class="mt-3 mb-3">
-                                <h2>Cargar Facultades</h2>
-                                <div class="form-group">
-                                    <label for="squareInput">Nombre</label>
-                                    <input type="text" class="form-control input-square" id="squareInput" placeholder="Nombre">
-                                </div>
-                                <div class="form-group">
-                                    <label for="squareInput">Código</label>
-                                    <input type="text" class="form-control input-square" id="squareInput" placeholder="codigo">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlFile1">Abjuntar Archivo</label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                </div>
-                                <div class="card-action ">
-                                    <button class="btn btn-primary">Guardar</button>
-                                    <button class="btn btn-danger">Cancelar</button>
-                                </div>
-                                
+                                <h2>Registrar facultades</h2>
                             </label>
                         </div>
                     </div>
