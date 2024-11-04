@@ -30,11 +30,28 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <h1>Aquí puede colocar su contenido</h1>
+                            <h1 class="text-center">Lista de Facultades</h1>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Código</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <td>hsdhshdhs</td>
+                                                <td>kaskakskaks</td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

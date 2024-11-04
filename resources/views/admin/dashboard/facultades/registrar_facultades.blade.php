@@ -30,9 +30,35 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <label class="mt-3 mb-3">
-                                <h2>Registrar facultades</h2>
-                            </label>
+                            <form action="{{--{{ route('facultades.store') }}--}}" method="POST" enctype="multipart/form-data">
+                                @csrf <!-- Protección CSRF de Laravel -->
+
+                                <h1 class="text-center">Añadir Facultad</h1>
+
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control input-solid" id="nombre_facultad" name="nombre_facultad"
+                                        placeholder="Ingrese el nombre" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="codigo">Código</label>
+                                    <input type="number" class="form-control input-solid" id="codigo_facultad" name="codigo_facultad"
+                                        placeholder="Ingrese el código" required>
+                                </div>
+
+                                <h2 class="text-center">Carga Masiva</h2>
+
+                                <div class="form-group">
+                                    <label for="archivo">Selecciona un archivo CSV:</label>
+                                    <input type="file" class="form-control" id="archivo_facultad" name="archivo_facultad" accept=".csv"
+                                        required>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary">Cargar facultades</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

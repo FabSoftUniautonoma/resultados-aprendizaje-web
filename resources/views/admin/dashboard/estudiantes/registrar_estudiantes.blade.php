@@ -30,7 +30,53 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row justify-content-center">
-                        <h1>Aquí puede colocar su contenido</h1>
+                        <form action="{{-- {{ route('facultades.store') }} --}}" method="POST" enctype="multipart/form-data">
+                            @csrf <!-- Protección CSRF de Laravel -->
+
+                            <h1 class="text-center">Añadir EStudiante</h1>
+
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control input-solid" id="nombre_estudiante"
+                                    name="nombre_estudiante" placeholder="Ingrese el nombre" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" class="form-control input-solid" id="apellido_estudiante"
+                                    name="apellido_estudiante" placeholder="Ingrese el apellido" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="codigo">Código</label>
+                                <input type="number" class="form-control input-solid" id="codigo_estudiante" name="codigo_estudainte"
+                                    placeholder="Ingrese el código" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Correo electrónico</label>
+                                <input type="email" class="form-control input-solid" id="correo_estudiante"
+                                    aria-describedby="emailHelp" placeholder="Ingrese el correo" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Contraseña</label>
+                                <input type="password" class="form-control input-solid" id="contraseña_estudiante"
+                                    placeholder="Ingrese la contraseña" required>
+                            </div>
+                            
+                            <h2 class="text-center">Carga Masiva</h2>
+
+                            <div class="form-group">
+                                <label for="archivo">Selecciona un archivo CSV:</label>
+                                <input type="file" class="form-control" id="archivo_personal" name="archivo_estudiante"
+                                    accept=".csv" required>
+                            </div>
+
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">Cargar estudiante</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
