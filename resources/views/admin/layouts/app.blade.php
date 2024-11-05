@@ -280,7 +280,7 @@
                                     </li>
                                     <li class="{{-- {{ request()->routeIs(['equipos.index','equipos.show','equipos.edit','equipos.update','equipos.destroy',]) ? 'active': '' }} --}}">
                                         <a href="{{ route('registrarAprendizaje.create') }}">
-                                            <span class="sub-item">Registrar resultados</span>
+                                            <span class="sub-item">Ver resultados</span>
                                         </a>
                                     </li>
 
