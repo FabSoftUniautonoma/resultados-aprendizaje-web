@@ -10,6 +10,10 @@ use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacultadObtenerController;
 
+use App\Http\Controllers\VicerrectorController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,3 +68,8 @@ Rutas Roles
 Route::get('/gestionar-rol', [RolesController::class, 'index'])->name('gestionarRoles.index');
 
 
+
+/*
+Rutas vicerrector
+*/
+Route::get('/gestionar-vicerrector', [VicerrectorController::class, 'index'])->name('vicerrector.index');
