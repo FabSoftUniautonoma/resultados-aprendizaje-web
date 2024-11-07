@@ -37,29 +37,18 @@
 
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control input-solid" id="nombre_personal"
+                                    <input type="text" class="form-control " id="nombre_personal"
                                         name="nombre_personal" placeholder="Ingrese el nombre" required>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="nombre">Apellido</label>
-                                    <input type="text" class="form-control input-solid" id="apellido_personal"
+                                    <input type="text" class="form-control " id="apellido_personal"
                                         name="apellido_personal" placeholder="Ingrese el apellido" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Correo electrónico</label>
-                                    <input type="email" class="form-control input-solid" id="correo_personal"
-                                        aria-describedby="emailHelp" placeholder="Ingrese el correo">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Contraseña</label>
-                                    <input type="password" class="form-control input-solid" id="contraseña_personal"
-                                        placeholder="Ingrese la contraseña">
                                 </div>
                                 <div class="form-group">
                                     <label for="facultades">Seleccionar Rol</label>
-                                    <select class="form-control input-solid" id="personal_rol">
+                                    <select class="form-control " id="personal_rol">
                                         <option>Docente</option>
                                         <option>Coordinador</option>
                                         <option>Vicerrector</option>

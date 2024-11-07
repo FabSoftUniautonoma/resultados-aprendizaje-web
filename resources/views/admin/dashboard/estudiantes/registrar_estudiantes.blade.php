@@ -48,19 +48,19 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="codigo">Código</label>
+                                <label for="codigo">Código estudiantil</label>
                                 <input type="number" class="form-control input-solid" id="codigo_estudiante" name="codigo_estudainte"
                                     placeholder="Ingrese el código" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Correo electrónico</label>
+                                <label for="exampleInputEmail1">Correo institucional</label>
                                 <input type="email" class="form-control input-solid" id="correo_estudiante"
                                     aria-describedby="emailHelp" placeholder="Ingrese el correo" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Contraseña</label>
+                                <label for="exampleInputPassword1"></label>
                                 <input type="password" class="form-control input-solid" id="contraseña_estudiante"
                                     placeholder="Ingrese la contraseña" required>
                             </div>

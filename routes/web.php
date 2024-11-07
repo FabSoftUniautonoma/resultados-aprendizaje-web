@@ -8,6 +8,7 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\AprendizajeController;
 use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FacultadObtenerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +33,13 @@ Rutas Facultad
 */
 Route::get('/gestionar-facultades', [FacultadController::class, 'index'])->name('gestionarfacultad.index');
 Route::get('/registrar-facultades', [FacultadController::class, 'create'])->name('registrarfacultad.create');
+Route::post('/registrar-facultades', [FacultadController::class, 'store'])->name('guardarfacultad.store');
 /*
 Rutas Programas Academicos
 */
 Route::get('/gestionar-programas', [ProgramasController::class, 'index'])->name('gestionarProgramas.index');
 Route::get('/registrar-programas', [ProgramasController::class, 'create'])->name('registrarProgramas.create');
-
+Route::post('/registrar-programas', [ProgramasController::class, 'store'])->name('guardarProgramas.store');
 /*
 Rutas Personal Administrativo
 */
