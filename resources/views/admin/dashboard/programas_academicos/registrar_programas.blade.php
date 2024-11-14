@@ -52,7 +52,7 @@
                                 </div>
                                 <!-- Campo de código del programa -->
                                 <div class="form-group">
-                                    <label class="form-label" for="text">código de Programa <span
+                                    <label class="form-label" for="text">Código de Programa <span
                                             class="text-danger">*</span></label>
                                     <input type="number"
                                         class="form-control @error('codigo_programa') is-invalid @enderror"

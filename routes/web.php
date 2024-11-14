@@ -47,9 +47,17 @@ Route::delete('/facultades/{id}', [FacultadController::class, 'destroy'])->name(
 /*
 Rutas Programas Academicos
 */
+// Mostrar la lista de programas
 Route::get('/gestionar-programas', [ProgramasController::class, 'index'])->name('gestionarProgramas.index');
+
+// Mostrar el formulario para registrar un nuevo programa
 Route::get('/registrar-programas', [ProgramasController::class, 'create'])->name('registrarProgramas.create');
 Route::post('/registrar-programas', [ProgramasController::class, 'store'])->name('guardarProgramas.store');
+Route::get('/programas/{id_programa}/editar', [ProgramasController::class, 'edit'])->name('programas.edit');
+Route::put('/programas/{id_programa}', [ProgramasController::class, 'update'])->name('programas.update');
+Route::delete('/programas/{id_programa}', [ProgramasController::class, 'destroy'])->name('programas.destroy');
+
+
 /*
 Rutas Personal Administrativo
 */
