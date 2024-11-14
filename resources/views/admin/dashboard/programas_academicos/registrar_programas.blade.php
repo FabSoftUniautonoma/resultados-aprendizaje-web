@@ -6,7 +6,7 @@
             <h4 class="page-title">Registrar Programa </h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
-                    <a href="#">
+                    <a href={{ route('dashboard') }}>
                         <i class="flaticon-home"></i>
                     </a>
                 </li>
@@ -20,7 +20,7 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Registrar Programa</a>
+                    <a href={{ route('registrarProgramas.create') }}>Registrar Programa</a>
                 </li>
             </ul>
         </div>
@@ -30,100 +30,141 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <form action="{{-- {{ route('programas.store') }} --}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('guardarProgramas.store') }} " method="POST"
+                                enctype="multipart/form-data" class="needes-validation" novalidate>
                                 @csrf <!-- Protección CSRF de Laravel -->
+                                @method('POST')
 
                                 <h1 class="text-center">Añadir Programa Académico</h1>
-
+                                <!-- Campo de nombre del programa -->
                                 <div class="form-group">
-                                    <label for="nombre">Título</label>
-                                    <input type="text" class="form-control" id="nombre_programa" name="nombre_programa"
-                                        placeholder="Ingrese el nombre" required
-                                        {{ old('archivo_programa') ? 'disabled' : '' }}>
+                                    <label class="form-label" for="text">Título <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text"
+                                        class="form-control @error('nombre_programa') is-invalid @enderror"
+                                        name="nombre_programa" id="nombre_programa" value="{{ old('nombre_programa') }}"
+                                        maxlength="100" placeholder="Ingrese el nombre" required>
+                                    @error('nombre_programa')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-
+                                <!-- Campo de código del programa -->
                                 <div class="form-group">
-                                    <label for="codigo">Código de Programa</label>
-                                    <input type="number" class="form-control" id="codigo_programa" name="codigo_programa"
-                                        placeholder="Ingrese el código" required
-                                        {{ old('archivo_programa') ? 'disabled' : '' }}>
+                                    <label class="form-label" for="text">código de Programa <span
+                                            class="text-danger">*</span></label>
+                                    <input type="number"
+                                        class="form-control @error('codigo_programa') is-invalid @enderror"
+                                        name="codigo_programa" id="codigo_programa" value="{{ old('codigo_programa') }}"
+                                        maxlength="100" placeholder="Ingrese el código" required>
+                                    @error('codigo_programa')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-
+                                <!-- Campo de número de semestres del programa -->
                                 <div class="form-group">
-                                    <label for="codigo">Número de semestres</label>
-                                    <input type="number" class="form-control" id="numero_semestres_programa"
-                                        name="numero_semestres_programa" placeholder="Ingrese el número de semestres"
-                                        required {{ old('archivo_programa') ? 'disabled' : '' }}>
+                                    <label class="form-label" for="text">Número de semestres <span
+                                            class="text-danger">*</span></label>
+                                    <input type="number"
+                                        class="form-control @error('numero_semestres_programa') is-invalid @enderror"
+                                        name="numero_semestres_programa" id="numero_semestres_programa"
+                                        value="{{ old('numero_semestres_programa') }}" maxlength="100"
+                                        placeholder="Ingrese el número de semestres" required>
+                                    @error('numero_semestres_programa')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-
+                                <!-- Campo de número de créditos del programa -->
                                 <div class="form-group">
-                                    <label for="codigo">Número de créditos</label>
-                                    <input type="number" class="form-control" id="numero_creditos_programa"
-                                        name="numero_creditos_programa" placeholder="Ingrese el número de créditos"
-                                        required {{ old('archivo_programa') ? 'disabled' : '' }}>
+                                    <label class="form-label" for="text">Número de créditos <span
+                                            class="text-danger">*</span></label>
+                                    <input type="number"
+                                        class="form-control @error('numero_creditos_programa') is-invalid @enderror"
+                                        name="numero_creditos_programa" id="numero_creditos_programa"
+                                        value="{{ old('numero_creditos_programa') }}" maxlength="100"
+                                        placeholder="Ingrese el número de créditos" required>
+                                    @error('numero_creditos_programa')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-
+                                <!-- Elección de facultad del programa -->
                                 <div class="form-group">
-                                    <label for="facultades">Facultades</label>
-                                    <select class="form-control" id="facultad_id" name="facultad_id" required
-                                        {{ old('archivo_programa') ? 'disabled' : '' }}>
+                                    <label class="form-label" for="text">Facultades <span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-control @error('facultad_id') is-invalid @enderror"
+                                        name="facultad_id" id="facultad_id" value="{{ old('facultad_id') }}"
+                                        maxlength="100" required>
                                         @foreach ($facultades as $facultad)
-                                            <option value="{{ $facultad->id }}">{{ $facultad->nombre_facultad }}</option>
+                                            <option value="{{ $facultad->id_facultad}}">{{ $facultad->nombre_facultad }}</option>
                                         @endforeach
                                     </select>
+                                    @error('facultad_id')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
+                                <!-- Botones -->
+                                <div class="form-group text-center">
+                                    <!-- Boton para cargar un formulario manualmente -->
+                                    <button type="submit" class="btn btn-primary">Cargar Programa</button>
+                                    <!-- Boton de cargar formulario mediante archivo CSV -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#cargaMasivaModal">
+                                        Carga masiva
+                                    </button>
+                                </div>
+                                <!-- Modal para cargar un archivo CSV -->
+                                <div class="modal fade" id="cargaMasivaModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="cargaMasivaModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="cargaMasivaModalLabel">Carga masiva de un
+                                                    programa</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
 
-                                <h2 class="text-center">Carga masiva</h2>
-
-                                <div class="form-group">
-                                    <label for="archivo">Selecciona un archivo CSV</label>
-                                    <div class="input-group">
-                                        <input type="file" class="form-control" id="archivo_programa"
-                                            name="archivo_programa" accept=".csv" onchange="toggleFields(this)">
-                                        <div class="input-group-append">
-                                            <button type="button" class="btn btn-primary" id="eliminarArchivoBtn"
-                                                onclick="eliminarArchivo()" style="display: none;">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
+                                            <div class="modal-body">
+                                                <h2 class="text-center">Carga Masiva</h2>
+                                                <!-- Campo para seleccionar un archivo CSV -->
+                                                <div class="form-group">
+                                                    <label for="archivo_programa">Selecciona un archivo CSV</label>
+                                                    <div class="input-group">
+                                                        <input type="file" class="form-control" id="archivo_programa"
+                                                            name="archivo_programa" accept=".csv"
+                                                            onchange="toggleFields(this)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <!-- Boton cerrar modal -->
+                                                <button type="button" class="btn btn-primary"
+                                                    data-dismiss="modal">Close</button>
+                                                <!-- Boton guardar un archivo  CSV -->
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-primary">Cargar programas</button>
-                                </div>
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+
                             </form>
-
-                            <script>
-                                // Función para habilitar o deshabilitar los campos si se sube un archivo CSV
-                                function toggleFields(input) {
-                                    const fields = document.querySelectorAll('input, select');
-                                    const eliminarBtn = document.getElementById('eliminarArchivoBtn');
-
-                                    if (input.files.length > 0) {
-                                        // Si se ha seleccionado un archivo CSV, deshabilitar los campos
-                                        fields.forEach(field => field.disabled = true);
-                                        // Mostrar el botón de eliminar
-                                        eliminarBtn.style.display = 'inline-block';
-                                    } else {
-                                        // Si no hay archivo, habilitar los campos
-                                        fields.forEach(field => field.disabled = false);
-                                        // Ocultar el botón de eliminar
-                                        eliminarBtn.style.display = 'none';
-                                    }
-                                }
-
-                                // Función para eliminar el archivo seleccionado y habilitar los campos
-                                function eliminarArchivo() {
-                                    // Limpiar el archivo cargado
-                                    document.getElementById('archivo_programa').value = '';
-                                    // Habilitar los campos
-                                    const fields = document.querySelectorAll('input, select');
-                                    fields.forEach(field => field.disabled = false);
-                                    // Ocultar el botón de eliminar
-                                    document.getElementById('eliminarArchivoBtn').style.display = 'none';
-                                }
-                            </script>
                         </div>
                     </div>
                 </div>

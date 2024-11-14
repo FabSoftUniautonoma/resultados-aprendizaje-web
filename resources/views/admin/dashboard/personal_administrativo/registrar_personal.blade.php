@@ -30,22 +30,55 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row justify-content-center">
+                            <!--Formulario de registro de personal administrativo por medio de campos-->
                             <form action="{{-- {{ route('facultades.store') }} --}}" method="POST" enctype="multipart/form-data">
                                 @csrf <!-- Protección CSRF de Laravel -->
 
                                 <h1 class="text-center">Añadir Personal Administrativo</h1>
-
+                                <!-- Campo del nombre para personal administrativo -->
                                 <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control " id="nombre_personal"
-                                        name="nombre_personal" placeholder="Ingrese el nombre" required>
+                                    <label class="form-label" for="text">Nombre <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text"
+                                        class="form-control @error('nombre_personal') is-invalid @enderror"
+                                        name="nombre_personal" id="nombre_personal" value="{{ old('nombre_personal') }}"
+                                        maxlength="100" placeholder="Ingrese el nombre" required>
+                                    @error('nombre_personal')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <!-- Campo del apellido para personal administrativo -->
+                                <div class="form-group">
+                                    <label class="form-label" for="text">Apellido <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text"
+                                        class="form-control @error('apellido_personal') is-invalid @enderror"
+                                        name="apellido_personal" id="nombre_personal" value="{{ old('apellido_personal') }}"
+                                        maxlength="100" placeholder="Ingrese el apellido " required>
+                                    @error('apellido_personal')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                 <!-- Campo del código para personal administrativo -->
+                                 <div class="form-group">
+                                    <label class="form-label" for="text">Identificación Administrativa <span
+                                            class="text-danger">*</span></label>
+                                    <input type="number"
+                                        class="form-control @error('identificacion_personal') is-invalid @enderror"
+                                        name="identificacion_personal" id="identificacion_personal"
+                                        value="{{ old('identificacion_personal') }}" maxlength="100"
+                                        placeholder="Ingrese la identificación" required>
+                                    @error('identificacion_personal')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="nombre">Apellido</label>
-                                    <input type="text" class="form-control " id="apellido_personal"
-                                        name="apellido_personal" placeholder="Ingrese el apellido" required>
-                                </div>
                                 <div class="form-group">
                                     <label for="facultades">Seleccionar Rol</label>
                                     <select class="form-control " id="personal_rol">
@@ -54,6 +87,7 @@
                                         <option>Vicerrector</option>
                                     </select>
                                 </div>
+
                                 <h2 class="text-center">Carga Masiva</h2>
 
                                 <div class="form-group">

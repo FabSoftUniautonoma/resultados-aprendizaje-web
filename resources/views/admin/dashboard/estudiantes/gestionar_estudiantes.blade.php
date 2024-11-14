@@ -30,7 +30,33 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row justify-content-center">
-                        <h1>Aquí puede colocar su contenido</h1>
+                       <h1 class="text-center">Lista de estudiantes</h1>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Correo</th>
+                                            <th>Telefono</th>
+                                            <th>Porgrama</th>
+                                            <th>Código</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <tr>
+                                                <td>Brayan </td>
+                                                <td>Cuellar </td>
+                                                <td>brayan.cuellar.a@</td>
+                                                <td>3137489814</td>
+                                                <td>ingeniera</td>
+                                                <td>000017373</td>
+
+                                            </tr>
+                                </tbody>
+                        </table>
+                            </div>
                     </div>
                 </div>
             </div>

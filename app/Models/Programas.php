@@ -10,6 +10,9 @@ class Programas extends Model
     use HasFactory;
 
     protected $table = 'programas';
+    protected $primaryKey = 'id_programa';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
         
@@ -20,9 +23,18 @@ class Programas extends Model
         'facultad_id',
     ];
 
+
+    // Relación: Un programa académico pertenece a una facultad
     public function facultad()
     {
-        return $this->belongsTo(Facultad::class, 'facultad_id');  // 'facultad_id' es la clave foránea
+        return $this->belongsTo(Facultad::class, 'facultad_id', 'id_facultad');  // 'facultad_id' es la clave foránea
+    }
+
+
+    // Relación: Un programa académico tiene muchos estudiantes
+    public function estudiantes()
+    {
+        return $this->hasMany(Estudiante::class, 'programa_id', 'id_programa');
     }
 
 }

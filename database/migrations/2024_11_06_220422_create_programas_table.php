@@ -12,19 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('programas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre_programa');
-            $table->integer('codigo_programa');
+            $table->id('id_programa');
+            $table->string('nombre_programa')->unique();
+            $table->integer('codigo_programa')->unique();
             $table->integer('numero_semestres_programa');
             $table->integer('numero_creditos_programa');
             // Clave foránea para facultades
             $table->unsignedBigInteger('facultad_id'); // ID de la facultad relacionada
 
             // Definir la relación de clave foránea
-            $table->foreign('facultad_id')->references('id')->on('facultades')->onDelete('cascade');
+            $table->foreign('facultad_id')->references('id_facultad')->on('facultades')->onDelete('cascade');  // Asegurando que la clave foránea se refiera correctamente a 'id_facultad'
 
             $table->timestamps();
-            
         });
     }
 
@@ -36,3 +35,4 @@ return new class extends Migration
         Schema::dropIfExists('programas');
     }
 };
+

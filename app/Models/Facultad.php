@@ -11,6 +11,9 @@ class Facultad extends Model
     use HasFactory;
 
     protected $table = 'facultades';
+    protected $primaryKey = 'id_facultad';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
         
@@ -23,6 +26,6 @@ class Facultad extends Model
       // Relación: Una facultad tiene muchos programas académicos
       public function programas()
       {
-          return $this->hasMany(Programas::class, 'facultad_id');
+          return $this->hasMany(Programas::class, 'facultad_id', 'id_facultad');
       }
 }

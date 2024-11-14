@@ -55,6 +55,7 @@ Rutas Estudiantes
 */
 Route::get('/gestionar-estudiante', [EstudianteController::class, 'index'])->name('gestionarEstudiantes.index');
 Route::get('/registrar-estudiante', [EstudianteController::class, 'create'])->name('registrarEstudiantes.create');
+Route::post('/registrar-estudiante', [EstudianteController::class, 'store'])->name('guardarEstudiantes.store');
 
 /*
 Rutas Resultados de Aprendizaje

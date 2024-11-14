@@ -139,7 +139,7 @@
                         <li class="nav-item {{ request()->is(['dashboard', '/']) ? 'active' : '' }}">
                             <a href="{{ route('dashboard') }}">
                                 <i class="fas fa-home"></i>
-                                <p>Historial</p>
+                                <p>Ilustraciones</p>
                             </a>
                         </li>
                         <!-- Facultades -->
@@ -318,7 +318,7 @@
         </div>
         <div class="main-panel">
             <div class="content">
-                {{-- @include('sweetalert::alert') --}}
+                @include('sweetalert::alert')
                 @yield('content')
             </div>
             <footer class="footer">
