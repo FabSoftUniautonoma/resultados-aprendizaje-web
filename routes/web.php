@@ -38,6 +38,12 @@ Rutas Facultad
 Route::get('/gestionar-facultades', [FacultadController::class, 'index'])->name('gestionarfacultad.index');
 Route::get('/registrar-facultades', [FacultadController::class, 'create'])->name('registrarfacultad.create');
 Route::post('/registrar-facultades', [FacultadController::class, 'store'])->name('guardarfacultad.store');
+Route::get('/facultades/{id}/editar', [FacultadController::class, 'edit'])->name('facultades.edit');
+Route::put('/facultades/{id}', [FacultadController::class, 'update'])->name('facultades.update');
+Route::delete('/facultades/{id}', [FacultadController::class, 'destroy'])->name('facultades.destroy');
+
+
+
 /*
 Rutas Programas Academicos
 */

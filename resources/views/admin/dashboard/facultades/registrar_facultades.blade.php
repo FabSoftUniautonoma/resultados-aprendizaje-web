@@ -14,7 +14,7 @@
                         <i class="flaticon-right-arrow"></i>
                     </li>
                     <li class="nav-item">
-                        <a href="#">facultades</a>
+                        <a href="gestionar-facultades">Facultades</a>
                     </li>
                     <li class="separator">
                         <i class="flaticon-right-arrow"></i>
@@ -64,14 +64,18 @@
                                     </div>
                                     <!-- Botones -->
                                     <div class="form-group text-center">
-                                        <!-- Boton para cargar un formulario manualmente -->
-                                        <button type="submit" class="btn btn-primary">Cargar facultades</button>
-                                        <!-- Boton de cargar formulario mediante archivo CSV -->
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#cargaMasivaModal">
+                                        <!-- Botón para cargar una facultad -->
+                                        <button type="submit" class="btn btn-primary mb-3">Cargar facultad</button>
+
+                                        <!-- Texto que aparece entre los botones -->
+                                        <p class="mt-3">O también puedes realizar:</p>
+
+                                        <!-- Botón de carga masiva -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cargaMasivaModal">
                                             Carga masiva
                                         </button>
                                     </div>
+
                                     <!-- Modal para cargar un archivo CSV -->
                                     <div class="modal fade" id="cargaMasivaModal" tabindex="-1" role="dialog"
                                         aria-labelledby="cargaMasivaModalLabel" aria-hidden="true">

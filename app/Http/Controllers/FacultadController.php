@@ -13,7 +13,8 @@ class FacultadController extends Controller
     // Función para mostrar la vista de gestionar facultades
     public function index()
     {
-        return view('admin.dashboard.facultades.gestionar_facultades');
+        $facultades = Facultad::all();
+        return view('admin.dashboard.facultades.gestionar_facultades', compact('facultades'));
     }
 
     // Función para mostrar la vista de registrar facultades
@@ -73,4 +74,37 @@ class FacultadController extends Controller
         return redirect()->route('registrarfacultad.create');
         
     }
+
+    public function edit($id)
+    {
+        $facultad = Facultad::findOrFail($id);
+        return view('admin.dashboard.facultades.edit_facultades', compact('facultad'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nombre_facultad' => 'required|string|max:255',
+            'descripcion_facultad' => 'required|string|max:1000',
+        ]);
+    
+        $facultad = Facultad::findOrFail($id);
+        $facultad->update($request->all());
+    
+        return redirect()->route('gestionarfacultad.index')->with('success', 'Facultad actualizada con éxito');
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        // Elimina la facultad
+        $facultad = Facultad::findOrFail($id);
+        $facultad->delete();
+
+        // Alerta de éxito después de eliminar
+        Alert::success('Eliminado', 'La facultad ha sido eliminada correctamente.');
+
+        // Redirigimos de vuelta a la lista de facultades
+        return redirect()->route('gestionarfacultad.index');
+    }
+
 }
