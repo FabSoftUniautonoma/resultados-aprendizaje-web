@@ -55,8 +55,27 @@ Route::delete('/programas/{id_programa}', [ProgramasController::class, 'destroy'
 /*
 Rutas Personal Administrativo
 */
-Route::get('/gestinar-adiministartivo', [AdministrativoController::class, 'index'])->name('gestionarAdministrativos.index');
-Route::get('/registrar-adiministartivo', [AdministrativoController::class, 'create'])->name('registrarAdministrativos.create');
+// Mostrar la lista de administrativos
+Route::get('/gestionar-administrativos', [AdministrativoController::class, 'index'])->name('gestionarAdministrativos.index');
+
+// Mostrar el formulario para registrar un nuevo administrativo
+Route::get('/registrar-administrativos', [AdministrativoController::class, 'create'])->name('registrarAdministrativos.create');
+
+// Guardar un nuevo administrativo en la base de datos
+Route::post('/registrar-administrativos', [AdministrativoController::class, 'store'])->name('registrarAdministrativos.store');
+
+
+// Mostrar el formulario para editar un administrativo existente
+Route::get('administrativos/{id_administrativos}/editar', [AdministrativoController::class, 'edit'])->name('administrativos.edit');
+
+
+// Actualizar los datos de un administrativo existente
+Route::put('/administrativos/{id_administrativos}', [AdministrativoController::class, 'update'])->name('administrativos.update');
+
+// Eliminar un administrativo de la base de datos
+Route::delete('/administrativos/{id_administrativos}', [AdministrativoController::class, 'destroy'])->name('administrativos.destroy');
+
+
 
 /*
 Rutas Estudiantes

@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('administrativos', function (Blueprint $table) {
-            $table->id();
-            
+            $table->id('id_administrativos');
+            $table->string('nombre_personal');
+            $table->string('apellido_personal');
+            $table->string('identificacion_personal')->unique();
+            $table->enum('personal_rol', ['Docente', 'Coordinador', 'Vicerrector']);
             $table->timestamps();
         });
     }
