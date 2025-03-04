@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        /* No se contempla en el MER
-            Schema::create('administrativos', function (Blueprint $table) {
-            $table->id();
-
+        Schema::create('resultados_aprendizaje', function (Blueprint $table) {
+            $table->tinyIncrements('id_resultado_aprendizaje');
+            $table->text('resultado_aprendizaje');
             $table->timestamps();
-        }); */
+        });
     }
 
     /**
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('administrativos');
+        Schema::dropIfExists('resultados_aprendizaje');
     }
 };

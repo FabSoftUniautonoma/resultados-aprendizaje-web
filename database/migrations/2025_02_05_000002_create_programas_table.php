@@ -12,16 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('programas', function (Blueprint $table) {
-            $table->id('id_programa');
-            $table->string('nombre_programa')->unique();
-            $table->integer('codigo_programa')->unique();
-            $table->integer('numero_semestres_programa');
-            $table->integer('numero_creditos_programa');
+            $table->tinyIncrements('id_programa');
+            $table->string('codigo')->unique();
+            $table->string('nombre');
+            $table->tinyInteger('numero_semestres');
+            $table->tinyInteger('numero_creditos');
+            $table->text('descripcion');
             // Clave foránea para facultades
             $table->unsignedBigInteger('facultad_id'); // ID de la facultad relacionada
 
             // Definir la relación de clave foránea
-            $table->foreign('facultad_id')->references('id_facultad')->on('facultades')->onDelete('cascade');  // Asegurando que la clave foránea se refiera correctamente a 'id_facultad'
+            $table->foreign('facultad_id')
+                ->references('id_facultad')
+                ->on('facultades');  // Asegurando que la clave foránea se refiera correctamente a 'id_facultad'
 
             $table->timestamps();
         });

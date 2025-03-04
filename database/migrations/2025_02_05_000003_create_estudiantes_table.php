@@ -11,19 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('estudiantes', function (Blueprint $table) {
-            $table->id('id_estudiante'); 
+        /* Se deja tabla de usuarios y se descrimina por rol
+            Schema::create('estudiantes', function (Blueprint $table) {
+            $table->id('id_estudiante');
             $table->string('nombre_estudiante');
             $table->string('apellido_estudiante');
             $table->integer('codigo_estudiante')->unique();
             $table->string('correo_estudiante')->unique();
             $table->text('contraseña_estudiante');
-            $table->unsignedBigInteger('programa_id'); // ID del programa relacionado
+            $table->tinyInteger('programa_id')->unsigned(); // ID del programa relacionado
 
             // Definir la relación de clave foránea
-            $table->foreign('programa_id')->references('id_programa')->on('programas')->onDelete('cascade'); 
+            $table->foreign('programa_id')->references('id_programa')->on('programas')->onDelete('cascade');
             $table->timestamps();
-        });
+        }); */
     }
 
     /**

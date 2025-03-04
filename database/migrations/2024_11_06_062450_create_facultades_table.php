@@ -12,9 +12,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('facultades', function (Blueprint $table) {
-            $table->id('id_facultad');  // Agrega una columna 'id' como clave primaria
-            $table->string('nombre_facultad');  // Columna para el nombre de la facultad
-            $table->text('descripcion_facultad');  // Columna para la descripción
+            $table->tinyIncrements('id_facultad');  // Agrega una columna 'id' como clave primaria
+            $table->string('nombre');  // Columna para el nombre de la facultad
+            $table->text('descripcion');  // Columna para la descripción
             $table->timestamps();  // Tiempos de creación y actualización
         });
     }
