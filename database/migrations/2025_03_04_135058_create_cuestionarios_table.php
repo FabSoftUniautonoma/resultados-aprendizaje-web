@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cuestionarios', function (Blueprint $table) {
-            $table->smallIncrements('id_cuestionario');
+            $table->bigIncrements('id_cuestionario');
             $table->tinyInteger('rubrica_id')->unsigned();
             $table->string('titulo', 100);
             $table->text('descripcion')->nullable();
@@ -20,6 +20,10 @@ return new class extends Migration
             $table->dateTime('fecha_cierre');
             $table->time('limite_tiempo');
             $table->timestamps();
+
+            $table->foreign('rubrica_id')
+                ->references('id_rubrica')
+                ->on('rubricas');
         });
     }
 

@@ -12,8 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('usuarios_cuestionarios', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_usuario_cuestionario');
+            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('cuestionario_id');
             $table->timestamps();
+
+            $table->foreign('usuario_id')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('cuestionario_id')
+                ->references('id_cuestionario')
+                ->on('cuestionarios');
         });
     }
 

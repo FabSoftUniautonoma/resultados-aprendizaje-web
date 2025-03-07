@@ -1,5 +1,6 @@
 <?php
 
+use App\Utils\Constants;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +13,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('preguntas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_pregunta');
+            $table->enum('tipo', Constants::TIPO_PREGUNTA);
+            $table->string('titulo', 100);
+            $table->text('pregunta'); // Decodificar HTML
+            $table->double('puntaje');
             $table->timestamps();
         });
     }

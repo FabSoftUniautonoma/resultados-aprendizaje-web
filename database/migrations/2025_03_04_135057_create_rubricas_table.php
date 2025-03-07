@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rubricas', function (Blueprint $table) {
-            $table->id();
+            $table->tinyIncrements('id_rubrica');
+            $table->text('rubrica'); // Decodificar a HTML
             $table->timestamps();
         });
     }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('programas_cursos', function (Blueprint $table) {
             $table->smallIncrements('id_programa_curso');
-            $table->tinyInteger('programa_id')->unsigned();
-            $table->mediumInteger('curso_id')->unsigned();
+            $table->unsignedTinyInteger('programa_id');
+            $table->unsignedMediumInteger('curso_id');
             $table->timestamps();
 
             $table->foreign('programa_id')
