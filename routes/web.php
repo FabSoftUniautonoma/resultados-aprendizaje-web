@@ -1,19 +1,16 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProgramasController;
-use App\Http\Controllers\FacultadController;
 use App\Http\Controllers\AdministrativoController;
-use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\AprendizajeController;
 use App\Http\Controllers\CuestionarioController;
+use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\FacultadController;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramasController;
 use App\Http\Controllers\RolesController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FacultadObtenerController;
-
 use App\Http\Controllers\VicerrectorController;
-
-
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +22,18 @@ use App\Http\Controllers\VicerrectorController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+require __DIR__.'/auth.php';
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
+Route::get('/', fn () => redirect()->route('login'))->name('principal');
+
+Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth'/* , 'verified' Se activa con SMTP */])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 Route::get('dashboard-uno', [HomeController::class, 'index'])->name('dashboard');
 
@@ -70,11 +75,11 @@ Rutas Roles
 Route::get('/gestionar-rol', [RolesController::class, 'index'])->name('gestionarRoles.index');
 
 
-
 /*
 Rutas vicerrector
 */
 Route::get('/gestionar-vicerrector', [VicerrectorController::class, 'index'])->name('vicerrector.index');
+
 
 /*
 Rutas cuestionarios
