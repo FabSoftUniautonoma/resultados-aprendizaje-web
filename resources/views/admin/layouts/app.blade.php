@@ -27,7 +27,7 @@
     <!-- Sparkline -->
     <script src="{{ asset('atlantis/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
     <!--JS personalizado-->
-    <script src="{{ asset('js/admin.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- Fonts and icons -->
     <script src="{{ asset('atlantis/assets/js/plugin/webfont/webfont.min.js') }}"></script>
     <script>
@@ -54,7 +54,7 @@
     <link href="{{ asset('atlantis/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('atlantis/assets/css/atlantis.css') }}" rel="stylesheet">
     <!-- Estilos personalizados -->
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         .form-group label,
         .form-check label {
@@ -95,9 +95,6 @@
 
                     <div class="collapse" id="search-nav">
                         <div class="user-box">
-                            <div class="u-text">
-                                <h2 style="color: white">Bienvenid@ {{-- {{ Auth::user()->nombre }} --}}</h2>
-                            </div>
                         </div>
                     </div>
                     <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
@@ -141,6 +138,29 @@
                                 <i class="fas fa-home"></i>
                                 <p>Ilustraciones</p>
                             </a>
+                        </li>
+                        <!-- Cuestionarios -->
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Cuestionarios</h4>
+                        </li>
+                        <li class="nav-item {{ request()->routeIs(['cuestionario.*']) ? 'active' : '' }}">
+                            <a data-toggle="collapse" href="#cuestionarios">
+                                <i class="fas fa-file-invoice"></i>
+                                <p>Cuestionarios</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse {{ request()->routeIs(['cuestionario.*']) ? 'show' : '' }}" id="cuestionarios">
+                                <ul class="nav nav-collapse">
+                                    <li class="{{ request()->routeIs(['cuestionario.*']) ? 'active': '' }}">
+                                        <a href=" {{ route('cuestionario.indexByUserId') }}">
+                                            <span class="sub-item">Pendientes</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <!-- Facultades -->
                         <li class="nav-section">

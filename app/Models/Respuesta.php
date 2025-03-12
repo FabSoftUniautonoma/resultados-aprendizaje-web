@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Respuesta extends Model
 {
     use HasFactory;
+
+    protected $table = 'respuestas';
+
+    protected $primaryKey = 'id_respuesta';
+
+    protected $fillable = [
+        'pregunta_id',
+        'respuesta',
+        'porcentaje',
+    ];
+
+    public function preguntas()
+    {
+        return $this->belongsTo(Pregunta::class, 'pregunta_id', 'id_pregunta');
+    }
 }

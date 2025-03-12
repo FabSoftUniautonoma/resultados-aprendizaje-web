@@ -6,6 +6,7 @@ use App\Http\Controllers\FacultadController;
 use App\Http\Controllers\AdministrativoController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\AprendizajeController;
+use App\Http\Controllers\CuestionarioController;
 use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacultadObtenerController;
@@ -74,3 +75,11 @@ Route::get('/gestionar-rol', [RolesController::class, 'index'])->name('gestionar
 Rutas vicerrector
 */
 Route::get('/gestionar-vicerrector', [VicerrectorController::class, 'index'])->name('vicerrector.index');
+
+/*
+Rutas cuestionarios
+*/
+Route::get('cuestionarios'/* proximamente por el id del usuario */,
+    [CuestionarioController::class, 'indexByUserId'])->name('cuestionario.indexByUserId');
+Route::get('preguntas/{cuestionarioId}'/* proximamente por el id del usuario */,
+    [CuestionarioController::class, 'showPreguntasByCuestionarioId'])->name('cuestionario.showPreguntasByCuestionarioId');

@@ -19,5 +19,14 @@ class DatabaseSeeder extends Seeder
         // Cursos y resultados
         $this->call(CursosTableSeeder::class);
         $this->call(CursosResultadosAprendizajeTableSeeder::class);
+        // Preguntas
+        $this->call(PreguntasTableSeeder::class);
+        $this->call(RespuestasTableSeeder::class);
+        $this->call(PreguntasCursosTableSeeder::class);
+        // Cuestionarios
+        $this->call(RubricasTableSeeder::class);
+        $this->call(CuestionariosTableSeeder::class);
+        $this->call(PreguntasCuestionariosTableSeeder::class);
+
     }
 }

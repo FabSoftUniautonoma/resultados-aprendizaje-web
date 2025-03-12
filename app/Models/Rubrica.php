@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Rubrica extends Model
 {
     use HasFactory;
+
+    protected $table = 'rubricas';
+
+    protected $primaryKey = 'id_rubrica';
+
+    protected $fillable = [
+        'rubrica',
+    ];
 }
