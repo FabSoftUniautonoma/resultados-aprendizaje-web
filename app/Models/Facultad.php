@@ -12,20 +12,17 @@ class Facultad extends Model
 
     protected $table = 'facultades';
     protected $primaryKey = 'id_facultad';
-    public $incrementing = true;
-    protected $keyType = 'int';
 
     protected $fillable = [
-        
         'nombre_facultad',
         'descripcion_facultad',
     ];
 
 
 
-      // Relación: Una facultad tiene muchos programas académicos
-      public function programas()
-      {
-          return $this->hasMany(Programas::class, 'facultad_id', 'id_facultad');
-      }
+    // Relación: Una facultad tiene muchos programas académicos
+    /* public function programas()
+    {
+        return $this->hasMany(Programa::class, 'facultad_id', 'id_facultad');
+    } */
 }
