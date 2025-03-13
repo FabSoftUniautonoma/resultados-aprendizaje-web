@@ -26,7 +26,7 @@ class RespuestasTableSeeder extends Seeder
         Respuesta::create([
             'pregunta_id' => 1,
             'respuesta' => 'Respuesta 3 correcta',
-            'porcentaje' => 100,
+            'porcentaje' => 1,
         ]);
         Respuesta::create([
             'pregunta_id' => 1,
@@ -41,7 +41,7 @@ class RespuestasTableSeeder extends Seeder
         Respuesta::create([
             'pregunta_id' => 2,
             'respuesta' => 'Respuesta pregunta 2 - 2 correcta',
-            'porcentaje' => 100,
+            'porcentaje' => 1,
         ]);
         Respuesta::create([
             'pregunta_id' => 2,
@@ -62,7 +62,7 @@ class RespuestasTableSeeder extends Seeder
         Respuesta::create([
             'pregunta_id' => 3,
             'respuesta' => 'Respuesta pregunta 3 - 2 correcta',
-            'porcentaje' => 100,
+            'porcentaje' => 1,
         ]);
         Respuesta::create([
             'pregunta_id' => 3,

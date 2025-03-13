@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id_usuario_cuestionario');
             $table->unsignedBigInteger('usuario_id');
             $table->unsignedBigInteger('cuestionario_id');
+            $table->text('respuestas_array'); // Repuestas en un array decodificado: json_encode($respuestas_array, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
             $table->timestamps();
 
             $table->foreign('usuario_id')

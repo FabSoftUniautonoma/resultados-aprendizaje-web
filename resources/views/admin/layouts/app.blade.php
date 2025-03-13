@@ -60,18 +60,22 @@
         .form-check label {
             white-space: normal;
         }
+
+        .btn {
+            white-space: normal;
+        }
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper {{ isset($attributes) ? $attributes : '' }}">
         <div class="main-header">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="blue">
 
                 <a href="" class="logo">
                     <div class="avatar-sm mr-4 ">
-                        <img src="{{ asset('img/autonoma_icono.png') }}" class="navbar-brand" height="40">
+                        <img src="{{ asset('img/autonoma_icono.svg') }}" class="navbar-brand" height="40">
                     </div>
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -98,6 +102,68 @@
                         </div>
                     </div>
                     <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                        <li class="nav-item dropdown hidden-caret submenu">
+                            <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell"></i>
+                                <span class="notification">2</span>
+                            </a>
+                            <ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
+                                <li>
+                                    <div class="dropdown-title">Tienes 2 nuevas notificaciones</div>
+                                </li>
+                                <li>
+                                    <div class="scroll-wrapper notif-scroll scrollbar-outer"
+                                        style="position: relative;">
+                                        <div class="notif-scroll scrollbar-outer scroll-content"
+                                            style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 256px;">
+                                            <div class="notif-center">
+                                                <a href="#">
+                                                    <div class="notif-icon notif-primary"> <i
+                                                            class="fa fa-clipboard"></i> </div>
+                                                    <div class="notif-content">
+                                                        <span class="block">
+                                                            Revisiones realizadas a cuestionarios
+                                                        </span>
+                                                        <span class="time">5 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="notif-icon notif-success"> <i class="fa fa-comment"></i>
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="block">
+                                                            Nuevos cuestionarios liberados
+                                                        </span>
+                                                        <span class="time">Hace 12 minutos</span>
+                                                    </div>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="scroll-element scroll-x">
+                                            <div class="scroll-element_outer">
+                                                <div class="scroll-element_size"></div>
+                                                <div class="scroll-element_track"></div>
+                                                <div class="scroll-bar ui-draggable ui-draggable-handle"
+                                                    style="width: 100px;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="scroll-element scroll-y">
+                                            <div class="scroll-element_outer">
+                                                <div class="scroll-element_size"></div>
+                                                <div class="scroll-element_track"></div>
+                                                <div class="scroll-bar ui-draggable ui-draggable-handle"
+                                                    style="height: 100px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {{-- <li>
+									<a class="see-all" href="javascript:void(0);">Ver todas all notifications<i class="fa fa-angle-right"></i> </a>
+								</li> --}}
+                            </ul>
+                        </li>
                         <li class="nav-item dropdown hidden-caret">
                             <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <i class="fas fa-user"></i>
@@ -126,35 +192,39 @@
             <div class="sidebar-wrapper scrollbar scrollbar-inner">
                 <div class="sidebar-content">
                     <ul class="nav nav-primary">
-                        <!-- Cuestionarios -->
-                        <li class="nav-section">
-                            <span class="sidebar-mini-icon">
-                                <i class="fa fa-ellipsis-h"></i>
-                            </span>
-                            <h4 class="text-section">Cuestionarios</h4>
-                        </li>
-                        <li class="nav-item {{ request()->routeIs(['cuestionario.*']) ? 'active' : '' }}">
-                            <a data-toggle="collapse" href="#cuestionarios">
-                                <i class="fas fa-file-invoice"></i>
-                                <p>Cuestionarios</p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse {{ request()->routeIs(['cuestionario.*']) ? 'show' : '' }}" id="cuestionarios">
-                                <ul class="nav nav-collapse">
-                                    <li class="{{ request()->routeIs(['cuestionario.indexByUserId']) ? 'active': '' }}">
-                                        <a href=" {{ route('cuestionario.indexByUserId') }}">
-                                            <span class="sub-item">Pendientes</span>
-                                        </a>
-                                    </li>
-                                    <li class="{{ request()->routeIs([]) ? 'active': '' }}">
-                                        <a href=" {{ route('cuestionario.indexByUserId') }}">
-                                            <span class="sub-item">Historial</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        @if (auth()->user()->hasRole(['admin','vicerrector']))
+                        @if (auth()->user()->hasRole(['estudiante']))
+                            <!-- Cuestionarios -->
+                            <li class="nav-section">
+                                <span class="sidebar-mini-icon">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </span>
+                                <h4 class="text-section">Cuestionarios</h4>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs(['cuestionario.*']) ? 'active' : '' }}">
+                                <a data-toggle="collapse" href="#cuestionarios">
+                                    <i class="fas fa-file-invoice"></i>
+                                    <p>Cuestionarios</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse {{ request()->routeIs(['cuestionario.*']) ? 'show' : '' }}"
+                                    id="cuestionarios">
+                                    <ul class="nav nav-collapse">
+                                        <li
+                                            class="{{ request()->routeIs(['cuestionario.indexByUserId']) ? 'active' : '' }}">
+                                            <a href=" {{ route('cuestionario.indexByUserId') }}">
+                                                <span class="sub-item">Pendientes</span>
+                                            </a>
+                                        </li>
+                                        <li class="{{ request()->routeIs([]) ? 'active' : '' }}">
+                                            <a href=" {{ route('cuestionario.indexByUserId') }}">
+                                                <span class="sub-item">Historial</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        @endif
+                        @if (auth()->user()->hasRole(['admin', 'vicerrector']))
                             <!-- Inicio -->
                             <li class="nav-section">
                                 <span class="sidebar-mini-icon">
@@ -167,6 +237,37 @@
                                     <i class="fas fa-home"></i>
                                     <p>Ilustraciones</p>
                                 </a>
+                            </li>
+
+                            <!-- Cuestionarios -->
+                            <li class="nav-section">
+                                <span class="sidebar-mini-icon">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </span>
+                                <h4 class="text-section">Cuestionarios</h4>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs(['cuestionario.*']) ? 'active' : '' }}">
+                                <a data-toggle="collapse" href="#cuestionarios">
+                                    <i class="fas fa-file-invoice"></i>
+                                    <p>Cuestionarios</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse {{ request()->routeIs(['cuestionario.*']) ? 'show' : '' }}"
+                                    id="cuestionarios">
+                                    <ul class="nav nav-collapse">
+                                        <li
+                                            class="{{ request()->routeIs(['cuestionario.indexByUserId']) ? 'active' : '' }}">
+                                            <a href=" {{ route('cuestionario.indexByUserId') }}">
+                                                <span class="sub-item">Generar reportes</span>
+                                            </a>
+                                        </li>
+                                        <li class="{{ request()->routeIs(['cuestionario.index']) ? 'active' : '' }}">
+                                            <a href=" {{ route('cuestionario.index') }}">
+                                                <span class="sub-item">Historial</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
 
                             <!-- Facultades -->

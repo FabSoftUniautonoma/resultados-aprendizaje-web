@@ -84,7 +84,16 @@ Route::get('/gestionar-vicerrector', [VicerrectorController::class, 'index'])->n
 /*
 Rutas cuestionarios
 */
+Route::resource('cuestionario',    CuestionarioController::class);
+
+/* Route::get('cuestionarios/general',[CuestionarioController::class, 'index'])->name('cuestionario.index'); */
 Route::get('cuestionarios'/* proximamente por el id del usuario */,
     [CuestionarioController::class, 'indexByUserId'])->name('cuestionario.indexByUserId');
 Route::get('preguntas/{cuestionarioId}'/* proximamente por el id del usuario */,
     [CuestionarioController::class, 'showPreguntasByCuestionarioId'])->name('cuestionario.showPreguntasByCuestionarioId');
+
+Route::post('intento/user/{cuestionarioId}/{userId}'/* proximamente por el id del usuario */,
+    [CuestionarioController::class, 'storeIntentoUser'])->name('cuestionario.storeIntentoUser');
+
+Route::get('resultado/user/{cuestionarioId}/{userId}',
+    [CuestionarioController::class, 'showResultados'])->name('cuestionario.showResultados');
