@@ -8,6 +8,7 @@ use App\Http\Controllers\FacultadController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramasController;
+use App\Http\Controllers\Reports\ReporteController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\VicerrectorController;
 use Illuminate\Support\Facades\Route;
@@ -88,12 +89,16 @@ Route::resource('cuestionario',    CuestionarioController::class);
 
 /* Route::get('cuestionarios/general',[CuestionarioController::class, 'index'])->name('cuestionario.index'); */
 Route::get('cuestionarios'/* proximamente por el id del usuario */,
-    [CuestionarioController::class, 'indexByUserId'])->name('cuestionario.indexByUserId');
+[CuestionarioController::class, 'indexByUserId'])->name('cuestionario.indexByUserId');
 Route::get('preguntas/{cuestionarioId}'/* proximamente por el id del usuario */,
-    [CuestionarioController::class, 'showPreguntasByCuestionarioId'])->name('cuestionario.showPreguntasByCuestionarioId');
+[CuestionarioController::class, 'showPreguntasByCuestionarioId'])->name('cuestionario.showPreguntasByCuestionarioId');
 
 Route::post('intento/user/{cuestionarioId}/{userId}'/* proximamente por el id del usuario */,
-    [CuestionarioController::class, 'storeIntentoUser'])->name('cuestionario.storeIntentoUser');
+[CuestionarioController::class, 'storeIntentoUser'])->name('cuestionario.storeIntentoUser');
 
 Route::get('resultado/user/{cuestionarioId}/{userId}',
-    [CuestionarioController::class, 'showResultados'])->name('cuestionario.showResultados');
+[CuestionarioController::class, 'showResultados'])->name('cuestionario.showResultados');
+
+/* Reportes */
+Route::get('reportes/cuestionarios',    [ReporteController::class,'index'])->name('reportes.cuestionarios.index');
+Route::get('reportes/cuestionarios/exportar', [ReporteController::class,'exportCuestionarios'])->name('reportes.cuestionarios.exportar');

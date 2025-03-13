@@ -252,12 +252,12 @@
                                     <p>Cuestionarios</p>
                                     <span class="caret"></span>
                                 </a>
-                                <div class="collapse {{ request()->routeIs(['cuestionario.*']) ? 'show' : '' }}"
+                                <div class="collapse {{ request()->routeIs(['cuestionario.*', 'reportes.cuestionarios.*']) ? 'show' : '' }}"
                                     id="cuestionarios">
                                     <ul class="nav nav-collapse">
                                         <li
-                                            class="{{ request()->routeIs(['cuestionario.indexByUserId']) ? 'active' : '' }}">
-                                            <a href=" {{ route('cuestionario.indexByUserId') }}">
+                                            class="{{ request()->routeIs(['reportes.cuestionarios.index']) ? 'active' : '' }}">
+                                            <a href=" {{ route('reportes.cuestionarios.index') }}">
                                                 <span class="sub-item">Generar reportes</span>
                                             </a>
                                         </li>
