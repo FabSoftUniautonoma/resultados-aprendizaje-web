@@ -14,8 +14,8 @@ class Facultad extends Model
     protected $primaryKey = 'id_facultad';
 
     protected $fillable = [
-        'nombre_facultad',
-        'descripcion_facultad',
+        'nombre',
+        'descripcion',
     ];
 
 

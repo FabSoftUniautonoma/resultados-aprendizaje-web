@@ -39,7 +39,7 @@
                             <td>
                                 <div class="row justify-content-center" style="font-size: 20px">
                                     <div class="col-2">
-                                        <a href="{{ route('cuestionario.show', $cuestionario->id_cuestionario) }}" style="color: #fa8c15;">
+                                        <a href="{{ route('cuestionario.showPreguntasByCuestionarioId', $cuestionario->id_cuestionario) }}" style="color: #fa8c15;">
                                             <i class="la icon-eye" data-toggle="tooltip" title="Ver cuestionario"></i>
                                         </a>
                                     </div>

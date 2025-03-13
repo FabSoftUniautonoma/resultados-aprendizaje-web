@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Programa;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\FuncCall;
 use App\Models\Estudiante;
-use App\Models\Programas;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -18,7 +18,7 @@ class EstudianteController extends Controller
 
     public function create()
     {
-        $programas = Programas::all();
+        $programas = Programa::all();
         return view('admin.dashboard.estudiantes.registrar_estudiantes', compact('programas'));
     }
 
@@ -33,7 +33,7 @@ class EstudianteController extends Controller
                 'codigo_estudiante' => 'required|numeric',
                 'correo_estudiante' => 'required|email|max:100',
                 'contraseña_estudiante' => 'required|min:6',
-                'programa_id' => 'required|exists:programas,id_programa', 
+                'programa_id' => 'required|exists:programas,id_programa',
             ]);
 
             // Creación del estudiante en la base de datos
@@ -45,7 +45,7 @@ class EstudianteController extends Controller
                 'contraseña_estudiante' => Hash::make($request->contraseña_estudiante),
                 'programa_id' => $request->programa_id, // Relación con el programa
             ]);
-            
+
             Alert::success('¡Éxito!', 'Los cambios se guardaron correctamente.');
             return redirect()->route('registrarEstudiantes.create');
         }

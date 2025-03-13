@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('codigo')->unique();
             $table->string('nombre');
             $table->tinyInteger('numero_semestres');
-            $table->tinyInteger('numero_creditos');
+            $table->smallInteger('numero_creditos');
             $table->text('descripcion');
             $table->timestamps();
 

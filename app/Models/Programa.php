@@ -13,10 +13,11 @@ class Programa extends Model
     protected $primaryKey = 'id_programa';
 
     protected $fillable = [
-        'nombre_programa',
-        'codigo_programa',
-        'numero_semestres_programa',
-        'numero_creditos_programa',
+        'nombre',
+        'codigo',
+        'numero_semestres',
+        'numero_creditos',
         'facultad_id',
+        'descripcion',
     ];
 }

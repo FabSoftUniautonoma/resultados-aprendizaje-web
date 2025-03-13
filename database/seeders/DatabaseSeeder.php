@@ -40,5 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CuestionariosTableSeeder::class);
         $this->call(PreguntasCuestionariosTableSeeder::class);
 
+        $this->call(FacultadesTableSeeder::class);
+        $this->call(ProgramasTableSeeder::class);
     }
 }

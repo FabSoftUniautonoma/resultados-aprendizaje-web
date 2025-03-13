@@ -30,7 +30,8 @@
         <footer>
             <div class="row justify-content-center mt-3">
                 <div class="col-8 text-secondary text-center">
-                    <h6>Copyright©2023 con❤️Uniautónoma</h6>
+                    {{ now()->year }} © con❤️<a href="https://www.uniautonoma.edu.co" target="_blank"
+                        style="text-decoration: none">Uniautónoma</a> v{{ ENV('APP_VERSION') }}
                 </div>
             </div>
         </footer>
